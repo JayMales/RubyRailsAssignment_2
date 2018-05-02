@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root 'items#index'
+  resources :users
+  root to: 'user#index'
+
+  resources :items  do
+   resources :posts, controller: :items, type: 'Post'
+   resources :comments, controller: :items, type: 'Comment'
+ end
 end
