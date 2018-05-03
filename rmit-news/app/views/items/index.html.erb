@@ -5,15 +5,7 @@
       <h2 class="post_title"><%= link_to news.title, item_path(news)%></h2>
       <p>Post ID:<%= news.id%> Author: <%= news.user.username%></p>
       <p><%= news.text%></p>
-      <div class="comments_container">
-      <h3 class="comments_header">Comments:</h3>
-        <% news.comments.each do |comments| %>
-          <div class="comment_container">
-            <p>Post ID:<%= comments.id%> Username: <%= comments.user.username%></p>
-            <p class="comment_text"><%= comments.text%></p>
-          <div>
-        <%end%>
-      </div>
+      <p><%= news.url%></p>
     </div>
   <% end%>
 </div>

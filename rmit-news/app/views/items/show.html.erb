@@ -4,5 +4,24 @@
     <h2 class="post_title"><%= @item.title%></h2>
     <p>Post ID:<%= @item.id%> Author: <%= @item.user.username%></p>
     <p><%= @item.text%></p>
+    <p><%= @item.url%></p>
+    <div class="comments_container">
+      <% if current_user %>
+        <%= form_for :comment, url: '/news' do |f|%>
+          <%= f.text_field :text%>
+          <%= f.hidden_field :post_id, value: @item.id%>
+          <%= f.submit 'Post comment'%>
+        <%end%>
+      <%else%>
+        <%= link_to 'You need to be signed in to comment', '/login' %>
+      <%end%>
+    <h3 class="comments_header">Comments:</h3>
+      <% @item.comments.each do |comments| %>
+        <div class="comment_container">
+          <p>Post ID:<%= comments.id%> Username: <%= comments.user.username%></p>
+          <p class="comment_text"><%= comments.text%></p>
+        <div>
+      <%end%>
+    </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<h1>List of new comments</h1>
+<% @comments.each do |theComments| %>
+  <div class="comment_container">
+    <p>Post ID:<%= theComments.id%> Username: <%= theComments.user.username%></p>
+    <p>on <%= link_to theComments.post.title, item_path(theComments.post)%> at <%= theComments.created_at%></p>
+    <p class="comment_text"><%= theComments.text%></p>
+  <div>
+<%end%>
