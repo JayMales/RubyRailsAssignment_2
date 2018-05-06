@@ -2,7 +2,8 @@
   <h1 class="post_header">All the posts with the comments under it.</h1>
   <div class="post_container">
     <h2 class="post_title"><%= @item.title%></h2>
-    <p>Post ID:<%= @item.id%> Author: <%= @item.user.username%></p>
+    <p>Post ID:<%= @item.id%> Author: <%= @item.user.username%>
+       Created at:<%= @item.created_at%></p>
     <p><%= @item.text%></p>
     <p><%= @item.url%></p>
     <div class="comments_container">
@@ -18,7 +19,8 @@
     <h3 class="comments_header">Comments:</h3>
       <% @item.comments.each do |comments| %>
         <div class="comment_container">
-          <p>Post ID:<%= comments.id%> Username: <%= comments.user.username%></p>
+          <p>Post ID:<%= comments.id%> Username: <%= comments.user.username%>
+          Created at:<%=comments.created_at%></p>
           <p class="comment_text"><%= comments.text%></p>
         <div>
       <%end%>

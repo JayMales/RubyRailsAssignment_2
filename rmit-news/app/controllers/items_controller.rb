@@ -7,20 +7,25 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(comment_params)
-    item.user_id = current_user.id
-    item.type = "Comment"
-    item.save
-    redirect_back(fallback_location: root_path)
+    if params.has_key?(:comment)
+      item = Item.new(item_params)
+      item.user_id = current_user.id
+      item.type = "Comment"
+      item.save
+      redirect_back(fallback_location: root_path)
+    elsif params.has_key?(:post)
+      item = Item.new(item_params)
+      item.user_id = current_user.id
+      item.type = "Post"
+      item.save
+      redirect_to '/'
+    end
   end
 
-  def update
+  def submit
   end
 
   def edit
-  end
-
-  def destroy
   end
 
   def index
@@ -31,7 +36,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def comment_params
-    params.require(:comment).permit(:text, :post_id)
+  def item_params
+    if params.has_key?(:comment)
+      params.require(:comment).permit(:text, :post_id)
+    elsif params.has_key?(:post)
+      params.require(:post).permit(:text, :title, :url)
+    end
   end
 end

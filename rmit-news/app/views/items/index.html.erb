@@ -3,7 +3,7 @@
   <% @thenews.each do |news|%>
     <div class="post_container">
       <h2 class="post_title"><%= link_to news.title, item_path(news)%></h2>
-      <p>Post ID:<%= news.id%> Author: <%= news.user.username%></p>
+      <p>Post ID:<%= news.id%> Author: <%= news.user.username%> Created at: <%= news.created_at%></p>
       <p><%= news.text%></p>
       <p><%= news.url%></p>
     </div>

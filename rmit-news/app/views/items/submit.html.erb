@@ -1,0 +1,10 @@
+<% if current_user %>
+  <%= form_for :post, url: '/news' do |f|%>
+    <%= f.text_field :title%>
+    <%= f.text_field :text%>
+    <%= f.text_field :url%>
+    <%= f.submit 'Post comment'%>
+  <%end%>
+<%else%>
+  <%= link_to 'You need to be signed in to Post', '/login' %>
+<%end%>

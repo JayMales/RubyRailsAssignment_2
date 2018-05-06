@@ -10,7 +10,7 @@
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "New Comments", newcomments_path %></li>
-        <li>Submit</li>
+        <li><%= link_to "Submit", submit_path %></li>
         <% if current_user %>
           <li><%= link_to "Logout", '/logout' %></li>
         <% else %>

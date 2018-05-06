@@ -17,11 +17,6 @@ class UsersController < ApplicationController
   def update
   end
 
-  def edit
-  end
-
-  def destroy
-  end
   # GET /users
   # GET /users.json
   def index

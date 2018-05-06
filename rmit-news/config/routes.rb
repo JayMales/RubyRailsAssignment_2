@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get "newcomments" => "items#newcomments"
 
+  get "submit" => "items#submit"
+
   resources :items, :path => 'news'  do
    resources :posts, controller: :items, type: 'Post'
    resources :comments, controller: :items, type: 'Comment'
