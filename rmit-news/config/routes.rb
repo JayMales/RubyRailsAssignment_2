@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   resources :sessions
+  resources :users
+
+  root 'items#index'
+
   get '/login' => 'sessions#new'
 
   post '/login' => 'sessions#create'
@@ -10,10 +14,6 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
   post '/users' => 'users#create'
-
-  root 'items#index'
-  resources :users
-  root to: 'user#index'
 
   get "newcomments" => "items#newcomments"
 

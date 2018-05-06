@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def new
   end
 
+  # This is the signup page. gets the user from the form sent
+  # Creates the user then logs you in. If fail sends you back to the page
   def create
     user = User.new(user_params)
     if user.save
@@ -14,26 +16,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-  end
-
-  # GET /users
-  # GET /users.json
-  def index
-      @users = User.all
-  end
-
-  def show
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # makes sure we get what we want, nothing else
     def user_params
-      params.require(:user).permit(:username, :email, :password, :permission)
+      params.require(:user).permit(:username, :password)
     end
 end

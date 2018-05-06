@@ -1,7 +1,13 @@
 class SessionsController < ApplicationController
+
+  # This controller is for the session for login
+
   def new
   end
 
+  # Checks if user is in database and if password is matchers
+  # Creates session with user Id and then redirects you to root
+  # or if fails puts you back at login.
   def create
     user = User.find_by_username(params[:username])
 
@@ -13,6 +19,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # This is basically logout. Sets session to nil, then sends you to login
   def destroy
     if session[:user_id] != nil
       session[:user_id] = nil
