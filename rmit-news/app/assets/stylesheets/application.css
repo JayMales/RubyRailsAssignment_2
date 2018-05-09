@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+.noPad{
+  padding: 0;
+}
+.fw-topmargin{
+  margin-top: 50px;
+}
+.newsFix{
+  line-height: 50px;
+  padding-right: 20px;
+  color: #e42b20;
+}
