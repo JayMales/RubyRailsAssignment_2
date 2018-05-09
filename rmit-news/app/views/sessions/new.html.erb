@@ -5,15 +5,19 @@
 				<div class="caption">
 					<h3>Log in</h3>
 				</div>
-				<form action="" class="loginForm col-xs-12">
+				<div class="loginForm col-xs-12">
 					<div class="input-group w-100" id='newUserHolder'>
             <%= form_tag "/login" do %>
-              <div class="loginFields" > <span>Username:</span> <%= text_field_tag :username%> </div>
-              <div class="loginFields" > <span>Password:</span> <%= password_field_tag :password%> </div>
+              <div class="loginFields" > <span>Username:</span>
+								<%= text_field_tag :username%>
+							</div>
+              <div class="loginFields" > <span>Password:</span>
+								<%= password_field_tag :password%>
+							</div>
               <%= submit_tag "login"%>
             <%end%>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
   </div>

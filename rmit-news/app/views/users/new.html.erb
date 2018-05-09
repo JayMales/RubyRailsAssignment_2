@@ -6,15 +6,19 @@
 				<div class="caption">
 					<h3>Sign Up</h3>
 				</div>
-				<form action="" class="loginForm col-xs-12">
+				<div class="loginForm col-xs-12">
 					<div class="input-group w-100" id='newUserHolder'>
             <%= form_for :user, url: '/users' do |f|%>
-              <div class="signupFields" > <span>Username:</span> <%= f.text_field :username%> </div>
-              <div class="signupFields" > <span>Password:</span> <%= f.password_field :password%> </div>
+              <div class="signupFields" > <span>Username:</span>
+								<%= f.text_field :username%>
+							</div>
+              <div class="signupFields" > <span>Password:</span>
+								<%= f.password_field :password%> 
+							</div>
               <%= f.submit 'Sign up'%>
             <%end%>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 		<div class="col-xs-12" style="top: 25px;">
