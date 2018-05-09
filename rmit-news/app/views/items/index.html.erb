@@ -1,11 +1,22 @@
 <div class="posts_container">
-  <h1 class="post_header">All the posts with the comments under it.</h1>
+  <h3>Page: <%= @page%></h3>
   <% @thenews.each do |news|%>
     <div class="post_container">
       <h2 class="post_title"><%= link_to news.title, item_path(news)%></h2>
-      <p>Post ID:<%= news.id%> Author: <%= news.user.username%> Created at: <%= news.created_at%></p>
+      <p>Post ID:<%= news.id%> Author: <%= news.user.username%> Created at: <%= news.created_at%> comments: <%=news.comments.count%></p>
       <p><%= news.text%></p>
-      <p><%= news.url%></p>
+      <%=link_to news.url, news.url%>
     </div>
   <% end%>
+</div>
+<div id="pagers">
+  <span>Go to: </span>
+  <%if !@prevpage.nil?%>
+    <span><%= link_to "Prev Page", root_path(:p => @prevpage)%></span>
+  <%end%>
+  <%if !@nextpage.nil?%>
+    <span><%= link_to "Next Page", root_path(:p => @nextpage) %></span>
+  <% else %>
+    <span>This is the last page</span>
+  <%end%>
 </div>

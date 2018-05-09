@@ -5,7 +5,7 @@
     <p>Post ID:<%= @item.id%> Author: <%= @item.user.username%>
        Created at:<%= @item.created_at%></p>
     <p><%= @item.text%></p>
-    <p><%= @item.url%></p>
+    <a href="https://<%= @item.url%>" target="_blank"><%= @item.url%></a>
     <div class="comments_container">
       <% if current_user %>
         <%= form_for :comment, url: '/news' do |f|%>

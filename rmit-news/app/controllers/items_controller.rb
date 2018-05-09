@@ -34,7 +34,21 @@ class ItemsController < ApplicationController
 
   # Gets list of posts from newest to oldest
   def index
-    @thenews = Item.where(type: "Post").order("id DESC")
+    @page = 0
+    if params.has_key?(:p)
+      @page = params[:p]
+    end
+    @prevpage = @page.to_i-1
+    @nextpage = @page.to_i+1
+    offset = @page*2
+    @thenews = Item.where(type: "Post").order("id DESC").limit(10).offset(offset)
+
+    if @thenews.count < 10
+      @nextpage = nil
+    end
+    if @prevpage < 0
+      @prevpage = nil
+    end
   end
 
   # Finds the id of the the post which is requested in get
