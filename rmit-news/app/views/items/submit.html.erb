@@ -1,10 +1,18 @@
-<% if current_user %>
-  <%= form_for :post, url: '/news' do |f|%>
-    <%= f.text_field :title%>
-    <%= f.text_field :text%>
-    <%= f.text_field :url%>
-    <%= f.submit 'Post comment'%>
+<div class="fwTopmargin">
+  <% if current_user %>
+    <%= form_for :post, url: '/news' do |f|%>
+      <%= f.text_field :title%>
+      <%= f.text_field :text%>
+      <%= f.text_field :url%>
+      <%= f.submit 'Post comment'%>
+    <%end%>
+  <%else%>
+    <div class="w-100">
+      <img class="stopsign" src="https://61978.apps.zdusercontent.com/61978/assets/1506471217-f11f72e1d66993b37ef07602ecff83f2/logo.png" alt="">
+    </div>
+    <div class="loginNotice">
+      <%= link_to 'You need to be signed in to submit news, please click to login', '/login' %>
+    </div>
   <%end%>
-<%else%>
-  <%= link_to 'You need to be signed in to Post', '/login' %>
-<%end%>
+
+</div>
