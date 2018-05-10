@@ -10,11 +10,13 @@ class SessionsController < ApplicationController
   # or if fails puts you back at login.
   def create
     user = User.find_by_username(params[:username])
+    @dupeUser = false
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to '/'
     else
+      @dupeUser = true
       redirect_to '/login'
     end
   end
