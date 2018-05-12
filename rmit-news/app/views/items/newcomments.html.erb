@@ -1,8 +1,11 @@
-<h1>List of new comments</h1>
+<h1 class="centereText fwTopmargin col-xs-12">Recent comments</h1>
 <% @comments.each do |theComments| %>
-  <div class="comment_container">
-    <p>Post ID:<%= theComments.id%> Username: <%= theComments.user.username%></p>
-    <p>on <%= link_to theComments.post.title, item_path(theComments.post)%> at <%= theComments.created_at%></p>
-    <p class="comment_text"><%= theComments.text%></p>
-  <div>
+  <div class="new_comment_container col-md-8 col-md-offset-2 col-xs-12 centereText">
+    <p style="margin-bottom:0;">
+      <b> <%= theComments.user.username%> </b>
+      commented <br>
+      " <i class="commentBlue"><%= theComments.text%></i> "
+    </p>
+    <p class="dib">on &nbsp;<p class='inlineArefRed'> <%= link_to theComments.post.title, item_path(theComments.post)%></p> &nbsp; <%= prettyDate(theComments.created_at)%></p>
+  </div>
 <%end%>

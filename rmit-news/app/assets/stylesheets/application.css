@@ -167,3 +167,24 @@ a:hover { text-decoration: none }
   width: 180px;
   margin-left: calc(59vw - 180px);
 }
+.inlineArefRed a{
+  color: #e42b20;
+}
+.inlineArefRed{
+  display: inline-block;
+      margin-bottom: 0;
+}
+ .dib{
+   margin-bottom: 0;
+   display: inline-block;
+ }
+.new_comment_container{
+  background: white;
+  margin-top:10px;
+  margin-bottom:10px;
+  padding-top:10px;
+  /* padding-bottom:10px; */
+}
+.commentBlue{
+  background-color: #e8fdff;
+}
