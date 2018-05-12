@@ -3,22 +3,24 @@
     <div class="col-xs-12">
       <div class="new_post_container white">
         <div class="contentIndent">
-          <h4 class="post_title" style="margin-bottom: 8px;"><%= link_to news.title, news.url%></h4>
+          <h4 class="new_post_title" style="margin-bottom: 8px;"><%= link_to news.title, news.url%></h4>
           <p> posted by <%= news.user.username%> <%= prettyDate(DateTime.now.utc, news.created_at)%> <br> <b><%= link_to "comments: #{news.comments.count}", item_path(news)%></b></p>
         </div>
       </div>
     </div>
   <% end%>
 </div>
-<div id="pagers">
+
+<div id="pagers" class="bottom_nav">
   <span>Go to: </span>
   <%if !@prevpage.nil?%>
     <span><%= link_to "Prev Page", root_path(:p => @prevpage)%></span>
   <%end%>
   <%if !@nextpage.nil?%>
+  <span><%= link_to "Prev Page", root_path(:p => @prevpage)%></span>
     <span><%= link_to "Next Page", root_path(:p => @nextpage) %></span>
   <% else %>
-    <span>This is the last page</span>
+    <!-- <span>This is the last page</span> -->
   <%end%>
-  <h3>Page: <%= @page%></h3>
+  <!-- <h3>Page: <%= @page%></h3> -->
 </div>

@@ -28,7 +28,7 @@
   padding: 0;
 }
 .fwTopmargin{
-  margin-top: 50px;
+  margin-top: 36px;
 }
 .newsFix{
   line-height: 50px;
@@ -161,4 +161,9 @@ a:hover { text-decoration: none }
   background: #fb044a;
   color: #fff;
   font-weight: 700;
+}
+
+.bottom_nav{
+  width: 180px;
+  margin-left: calc(59vw - 180px);
 }

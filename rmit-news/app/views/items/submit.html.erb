@@ -1,45 +1,48 @@
-<div class="fwTopmargin">
   <% if current_user %>
     <%= form_for :post, url: '/news' do |f|%>
-
-      <div class="form-horizontal col-x-12" id='create_news_form'>
-      <legend class="centereText"> Submit News Post</legend>
-
-      <!-- Text input-->
-      <div class="form-group centereText">
-        <div class="col-md-4">
-          <label class="col-md-4 centereText control-label" for="c_newsTitle">News Title</label>
-          <%= f.text_field :title%>
-        </div>
-      </div>
-
-      <!-- Text input-->
-      <div class="form-group centereText">
-        <div class="col-md-4">
-        <label style='margin-right: 10px;' class="col-md-4 control-label" for="c_newsUrl">News Url</label>
-        <%= f.text_field :url%>
-        </div>
-      </div>
-
-      <!-- Text input-->
-      <div class="form-group centereText">
-        <div class="col-md-4">
-        <label  class="hackedformFix col-md-4 control-label" for="c_newsComment">News Comment</label>
-        <%= f.text_field :text%>
-
-        </div>
-      </div>
-
-      <!-- Button -->
-      <div class="form-group centereText">
-        <label class="col-md-4 control-label" for="c_newsSubmit"></label>
-        <div class="col-md-4">
-          <%= f.submit 'Post News'%>
-        </div>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-8 col-md-offset-2 text-center">
+    			<div class="search-box">
+    				<div class="caption">
+    					<h3>Create new post</h3>
+    				</div>
+    				<div class="loginForm col-xs-12">
+    					<div class="input-group w-100" >
+                <%= form_tag "/login" do %>
+                  <div class="loginFields" >
+                    <div class="labelW">
+                      <span>Title:</span>
+                    </div>
+                    <div class="inputW">
+                      <%= f.text_field :title%>
+                    </div>
+                  </div>
+                  <div class="loginFields" >
+                    <div class="labelW">
+                      <span>Url:</span>
+                    </div>
+                    <div class="inputW">
+                      <%= f.text_field :url%>
+                    </div>
+                  </div>
+                  <div class="loginFields" style="margin-bottom:20px;">
+                    <div class="labelW">
+                      <span>Description:</span>
+                    </div>
+                    <div class="inputW">
+                      <%= f.text_field :text%>
+                    </div>
+                  </div>
+                  <%= f.submit 'Post News'%>
+                <%end%>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
       </div>
     </div>
-    <%end%>
-
+  <%end%>
   <%else%>
     <div class="w-100">
       <img class="stopsign" src="https://61978.apps.zdusercontent.com/61978/assets/1506471217-f11f72e1d66993b37ef07602ecff83f2/logo.png" alt="">
@@ -48,5 +51,3 @@
       <%= link_to 'You need to be signed in to submit news, please click to login', '/login' %>
     </div>
   <%end%>
-
-</div>
