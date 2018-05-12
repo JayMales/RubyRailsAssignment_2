@@ -1,11 +1,12 @@
 <div class="fwTopmargin">
-  <h3>Page: <%= @page%></h3>
   <% @thenews.each do |news|%>
-    <div class="post_container">
-      <h2 class="post_title"><%= link_to news.title, item_path(news)%></h2>
-      <p>Post ID:<%= news.id%> Author: <%= news.user.username%> Created at: <%= news.created_at%> comments: <%=news.comments.count%></p>
-      <p><%= news.text%></p>
-      <%=link_to news.url, news.url%>
+    <div class="col-xs-12">
+      <div class="new_post_container white">
+        <div class="contentIndent">
+          <h4 class="post_title" style="margin-bottom: 8px;"><%= link_to news.title, news.url%></h4>
+          <p> posted by <%= news.user.username%> <%= prettyDate(DateTime.now.utc, news.created_at)%> <br> <b><%= link_to "comments: #{news.comments.count}", item_path(news)%></b></p>
+        </div>
+      </div>
     </div>
   <% end%>
 </div>
@@ -19,4 +20,5 @@
   <% else %>
     <span>This is the last page</span>
   <%end%>
+  <h3>Page: <%= @page%></h3>
 </div>

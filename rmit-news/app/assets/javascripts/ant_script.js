@@ -110,6 +110,6 @@ var Spas = 0;
       console.log('passed');
       $('#newUserHolder input[type=submit]').prop('disabled', true);
     }else{
-      $('#newUserHolder input[type=submit]').prop('disabled', false);  
+      $('#newUserHolder input[type=submit]').prop('disabled', false);
     }
 });

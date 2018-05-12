@@ -13,8 +13,15 @@
  *= require_tree .
  *= require_self
  */
-.body{
-  margin:auto, 0;
+.centereText{
+  text-align: center;
+}
+
+.hackedformFix{
+  position: relative;
+    padding: 0;
+    right: 20px;
+    margin-right: -5px;
 }
 
 .noPad{
@@ -71,8 +78,10 @@ h6 {
     margin: 0 0 15px;
     font-weight: 700;
 }
-html,
-body { height: 100% }
+html, body {
+  height: 100%;
+  background: #f8f8f8;
+}
 
 a {
     -moz-transition: 0.3s;
@@ -143,4 +152,13 @@ a:hover { text-decoration: none }
 
 #usr_info {
   display:none;
+}
+
+#create_news_form input[type=text]{
+  width: 300px;
+}
+#create_news_form input[type=submit]{
+  background: #fb044a;
+  color: #fff;
+  font-weight: 700;
 }
