@@ -10,4 +10,8 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :password, presence: true
   has_secure_password
+
+  def as_json(options = nil)
+   super({ only: [:username] }.merge(options || {}))
+ end
 end

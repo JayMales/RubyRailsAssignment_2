@@ -19,6 +19,13 @@ Rails.application.routes.draw do
 
   get "submit" => "items#submit"
 
+  get "/v0/item/" => "apiv0#show"
+
+  post "/v0/item/create" => "apiv0#create"
+
+  resources :apiv0, :path => '/v0/item/'  do
+    resources :v0, controller: :apiv0
+  end
   resources :items, :path => 'news'  do
    resources :posts, controller: :items, type: 'Post'
    resources :comments, controller: :items, type: 'Comment'

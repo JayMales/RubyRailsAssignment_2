@@ -6,4 +6,9 @@ class Comment < Item
   belongs_to :post
   validates :post_id, presence: true
   validates :text, presence: true
+
+  def as_json(options = nil)
+    super(  {methods: :by, only: [:id, :text, :created_at, :type]}.merge({}))
+  end
+
 end
