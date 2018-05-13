@@ -16,9 +16,4 @@ class Apiv0Controller < ApplicationController
   def create
 
   end
-
-  rescue_from ActionController::ParameterMissing do
-    render status => :bad_request
-  end
-
 end
