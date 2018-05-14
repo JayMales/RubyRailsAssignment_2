@@ -5,7 +5,7 @@
       <div class="new_post_container white">
         <div class="contentIndent">
           <h4 class="new_post_title" style="margin-bottom: 8px;"><%= link_to news.title, news.url%></h4>
-          <p> posted by <b> <%= news.user.username%> </b> at <%= localizedDate(news.created_at)%> <br> <b><%= link_to "comments: #{news.comments.count}", item_path(news)%></b></p>
+          <p class="subtext"> posted by <b> <%= news.user.username%> </b> at <%= localizedDate(news.created_at)%> <br> <b><%= link_to "comments: #{news.comments.count}", item_path(news)%></b></p>
         </div>
       </div>
     </div>

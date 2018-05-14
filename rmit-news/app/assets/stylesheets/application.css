@@ -45,7 +45,7 @@
 .comment_box{
   background: white;
   /* width: 95%; */
-  top: -5vw;
+  /* top: -5vw; */
   min-height: 40px;
   position: relative;
 }
@@ -179,6 +179,13 @@ a:hover { text-decoration: none }
 
 #create_news_form input[type=text]{
   width: 300px;
+}
+
+.subtext{
+  color: #6d6d6d
+}
+.subsize{
+  font-size: 10px;
 }
 
 textarea#post_text {
