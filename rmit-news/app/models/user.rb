@@ -6,7 +6,10 @@ class User < ApplicationRecord
   # To crypt the password. The tutor said it was the one to use for this.
   has_many :posts, class_name: 'Post'
   has_many :comments, class_name: 'Comment'
-  validates_uniqueness_of :username
+  validates_uniqueness_of :username, :message => '%{value} has already been taken'
+
+
+
   validates :username, presence: true
   validates :password, presence: true
   has_secure_password

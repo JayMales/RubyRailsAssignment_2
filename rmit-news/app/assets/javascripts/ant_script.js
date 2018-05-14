@@ -1,9 +1,11 @@
 $(document).on('turbolinks:load', function(){
 // password validation js
 
-$('#newUserHolder input[type=submit]').prop('disabled', true);
+
 var Fpas = 0;
 var Spas = 0;
+$('#newUserHolder input[type=submit]').prop('disabled', true);
+
 	$('#newUserHolder input[type=password]').keyup(function() {
 		var pswd = $('#user_password').val();
     var pswdLength = pswd.length
@@ -65,6 +67,12 @@ var Spas = 0;
     }else{
       Fpas = 0;
     }
+		if(Spas == 1 && Fpas == 1){
+			console.log('passed');
+			$('#newUserHolder input[type=submit]').prop('disabled', false);
+		}else{
+			$('#newUserHolder input[type=submit]').prop('disabled', true);
+		}
 	}).focus(function() {
 		$('#pswd_info').show();
 	}).blur(function() {
@@ -100,16 +108,17 @@ var Spas = 0;
       }else{
         Spas = 0;
       }
+			if(Spas == 1 && Fpas == 1){
+				console.log('passed');
+				$('#newUserHolder input[type=submit]').prop('disabled', false);
+			}else{
+				$('#newUserHolder input[type=submit]').prop('disabled', true);
+			}
   	}).focus(function() {
   		$('#usr_info').show();
   	}).blur(function() {
   		$('#usr_info').hide();
   	});
 
-    if(Spas == 1 && Fpas == 1){
-      console.log('passed');
-      $('#newUserHolder input[type=submit]').prop('disabled', true);
-    }else{
-      $('#newUserHolder input[type=submit]').prop('disabled', false);
-    }
+
 });

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def new
   end
 
+
+
   # This is the signup page. gets the user from the form sent
   # Creates the user then logs you in. If fail sends you back to the page
   def create
@@ -14,6 +16,11 @@ class UsersController < ApplicationController
     else
       redirect_to '/signup'
     end
+  end
+
+
+  def showerror
+      @user = User.find(params[:message])
   end
 
   private
