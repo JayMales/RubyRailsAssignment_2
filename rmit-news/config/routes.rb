@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   post "/v0/item/create" => "apiv0#create"
 
+  get '/about' => 'pages#about'
+
   resources :apiv0, :path => '/v0/item/'  do
     resources :v0, controller: :apiv0
   end

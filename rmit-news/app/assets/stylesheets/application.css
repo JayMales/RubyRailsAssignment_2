@@ -24,6 +24,24 @@
     margin-right: -5px;
 }
 
+img.circleImg{
+  border-radius: 100%;
+    width: 120px;
+    margin-bottom: 20px;
+}
+.redtexr{
+  color: #e42b20;
+}
+.muted{
+  color: #797979;
+}
+
+.blurbText{
+  text-align: center;
+  padding:20px;
+  margin-bottom: 20px;
+}
+
 .noPad{
   padding: 0;
 }
@@ -227,6 +245,24 @@ textarea#post_text {
   padding-top:10px;
   /* padding-bottom:10px; */
 }
+
+a.whiteText{
+  color: white !important;
+  text-align: center !important;
+}
+
+.whiteText a{
+  text-align: center !important;
+  color: white !important;
+}
+
+p.whiteText{
+  color: white !important;
+}
+.inline-block{
+  display: inline-block;
+}
+
 .commentBlue{
   background-color: #e8fdff;
 }
@@ -234,6 +270,11 @@ textarea#post_text {
   width: 100%;
   resize: none;
   height: 72px;
+}
+.linksContainer{
+  width: 100%;
+  text-align: center;
+  color: white;
 }
 #commentonapost input[type=submit]{
   /* width: 50%; */
