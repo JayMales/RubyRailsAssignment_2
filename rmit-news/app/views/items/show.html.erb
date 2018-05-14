@@ -1,29 +1,48 @@
 <div class="posts_container">
-  <h1 class="post_header">All the posts with the comments under it.</h1>
-  <div class="post_container">
-    <h2 class="post_title"><%= @item.title%></h2>
-    <p>Post ID:<%= @item.id%> Author: <%= @item.user.username%>
-       Created at:<%= @item.created_at%></p>
-    <p><%= @item.text%></p>
-    <a href="https://<%= @item.url%>" target="_blank"><%= @item.url%></a>
-    <div class="comments_container">
-      <% if current_user %>
-        <%= form_for :comment, url: '/news' do |f|%>
-          <%= f.text_field :text%>
-          <%= f.hidden_field :post_id, value: @item.id%>
-          <%= f.submit 'Post comment'%>
-        <%end%>
-      <%else%>
-        <%= link_to 'You need to be signed in to comment', '/login' %>
-      <%end%>
-    <h3 class="comments_header">Comments:</h3>
-      <% @item.comments.each do |comments| %>
-        <div class="comment_container">
-          <p>Post ID:<%= comments.id%> Username: <%= comments.user.username%>
-          Created at:<%=comments.created_at%></p>
-          <p class="comment_text"><%= comments.text%></p>
-        <div>
-      <%end%>
+  <div class="col-xs-12 fwTopmargin">
+    <div class="new_post_container white">
+      <div class="contentIndent">
+        <h2 class="post_title"><%= link_to @item.title, @item.url%></h2>
+        <p><%= @item.text%></p>
+        <p> posted by <b> <%= @item.user.username%></b> <%= prettyDate(@item.created_at)%> <br> </p>
+      </div>
     </div>
   </div>
+  <% if @item.comments.count == 0%>
+  <h4 class=" comment_header indent_comment col-xs-8" style="margin-top: 40px;">Viewing comments for <br> <b><i><%= @item.title %></i></b><br> but theres no comments here, be the first to comment</h4>
+  <%elsif @item.comments.count > 0%>
+  <h4 class=" comment_header indent_comment col-xs-8">Viewing <%= @item.comments.count%> comments for <br> <b><i><%= @item.title %></i></b></h4>
+  <%end%>
+  <div class="comments_container col-xs-4" id='commentonapost' style="min-height:190px;">
+    <h4 class="centereText"> <b>Post a comment</b></h4>
+    <% if current_user %>
+      <%= form_for :comment, url: '/news' do |f|%>
+        <%= f.hidden_field :post_id, value: @item.id%>
+        <%= f.text_area :text%>
+        <div style="width:100%;" class="centereText">
+        <%= f.submit 'Post comment'%>
+        </div>
+      <%end%>
+    <%else%>
+    <div class="w-100">
+      <img class="stopsign" src="https://61978.apps.zdusercontent.com/61978/assets/1506471217-f11f72e1d66993b37ef07602ecff83f2/logo.png" alt="">
+    </div>
+    <br>
+      <h5 class="centereText"><%= link_to 'You need to be signed in to comment, please click to login', '/login' %> </h5>
+    <%end%>
+  </div>
+  <div class=" col-md-8 col-xs-12">
+    <div class="comment_box">
+      <% if @item.comments.count == 0%>
+      <p class="centereText" style="line-height:40px;"> There's no comments it's lonely down here :( </p>
+      <%end%>
+        <% @item.comments.each do |comments| %>
+        <div class="comment_container">
+          <p class="comment_text"><%= comments.text%></p>
+          <p> commented by <%= comments.user.username%>, <i><%=prettyDate(comments.created_at)%></p></i>
+        </div>
+        <%end%>
+      </div>
+    </div>
+
 </div>

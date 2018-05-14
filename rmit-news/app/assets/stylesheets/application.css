@@ -30,6 +30,29 @@
 .fwTopmargin{
   margin-top: 36px;
 }
+.indent_comment{
+  position: relative;
+  left: 5px;
+}
+.comment_container{
+  padding-top: 10px;
+      margin-top: 5px;
+      padding-bottom: 10px;
+      margin-bottom: 5px;
+      padding-left: 20px;
+      background: #f6feff;
+}
+.comment_box{
+  background: white;
+  /* width: 95%; */
+  top: -5vw;
+  min-height: 40px;
+  position: relative;
+}
+h4.comment_header{
+  text-align: center;
+  font-weight: 400;
+}
 .newsFix{
   line-height: 50px;
   padding-right: 20px;
@@ -187,4 +210,18 @@ a:hover { text-decoration: none }
 }
 .commentBlue{
   background-color: #e8fdff;
+}
+#commentonapost textarea{
+  width: 100%;
+  resize: none;
+  height: 72px;
+}
+#commentonapost input[type=submit]{
+  /* width: 50%; */
+  background: #fb044a;
+    color: #fff;
+    font-weight: 700;
+text-align: center;
+margin: 0 auto;
+
 }
