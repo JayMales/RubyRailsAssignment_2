@@ -8,7 +8,7 @@ class Comment < Item
   validates :text, presence: true
 
   def as_json(options = nil)
-    super(  {methods: :by, only: [:id, :text, :created_at, :type]}.merge({}))
+    super(  {methods: [:by, :time], only: [:id, :text, :type]}.merge({}))
   end
 
 end
