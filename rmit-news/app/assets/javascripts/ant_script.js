@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 // password validation js
 
 $('#newUserHolder input[type=submit]').prop('disabled', true);
