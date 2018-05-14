@@ -13,12 +13,12 @@
 
 
 <div id="pagers" class="bottom_nav">
-  <span>Go to: </span>
+  <!-- <span>Go to: </span> -->
   <%if !@prevpage.nil?%>
-    <span><%= link_to "Prev Page", root_path(:p => @prevpage)%></span>
+    <span><%= link_to "Previous ", root_path(:p => @prevpage)%></span>
   <%end%>
   <%if !@nextpage.nil?%>
-  <span><%= link_to "Previous News", root_path(:p => @prevpage)%></span>
+  <!-- <span><%= link_to "Previous", root_path(:p => @prevpage)%></span> -->
     <span><%= link_to "More", root_path(:p => @nextpage) %></span>
   <% else %>
     <!-- <span>This is the last page</span> -->

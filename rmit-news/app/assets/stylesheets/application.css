@@ -180,6 +180,18 @@ a:hover { text-decoration: none }
 #create_news_form input[type=text]{
   width: 300px;
 }
+
+textarea#post_text {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+.labelw__f{
+  bottom: 50px;
+  position: relative;
+}
+
 #create_news_form input[type=submit]{
   background: #fb044a;
   color: #fff;
