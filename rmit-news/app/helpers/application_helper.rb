@@ -29,4 +29,10 @@ module ApplicationHelper
        end
      end
 
+
+     def localizedDate(dateCreate)
+       localDate = dateCreate.localtime
+       bigString = localDate.strftime("%I:%M%p") + localDate.strftime(" on %d/%m/%Y")
+
+     end
 end
